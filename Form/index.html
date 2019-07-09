@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>survey form</title>
+</head>
+
+<body>
+    <h1 id="title">Survey Form</h1>
+    <div id="form-outer">
+        <p id="description">
+            Reci nam kako možemo poboljšati predavanja u Edunovi
+        </p>
+        <form id="survey-form" method="GET" action="index.html">
+            <div class="rowTab">
+                <div class="labels">
+                    <label id="name-label" for="name"> Ime: </label>
+                </div>
+                <div class="rightTab">
+                    <input autofocus="" type="text" name="name" id="name" class="input-field" placeholder="Unesi ime" required="">
+                </div>
+            </div>
+            <div class="rowTab">
+                <div class="labels">
+                    <label id="email-label" for="email"> Email: </label>
+                </div>
+                <div class="rightTab">
+                    <input type="email" name="email" id="email" class="input-field" required="" placeholder="Unesi e-mail adresu">
+                </div>
+            </div>
+            <div class="rowTab">
+                <div class="labels">
+                    <label id="number-label" for="age"> Godine: </label>
+                </div>
+                <div class="rightTab">
+                    <input type="number" name="age" id="number" min="1" max="100" class="input-field" placeholder="Unesi godine">
+                </div>
+            </div>
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="currentPos">Koja opcija ponajbliže opisuje tvoj status?</label>
+                </div>
+                <div class="rightTab">
+                    <select id="dropdown" name="currentPos" class="dropdown">
+                <option disabled="" selected="" value="">Odaberi opciju</option>
+                <option value="student">Student</option>
+                <option value="job">Zaposlen</option>
+                <option value="noJob">Nezposlen</option>
+                <option value="preferNo">Ne želim reći</option>
+                <option value="other">Ostalo</option>
+                </select>
+                </div>
+            </div>
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="userRating">Koliko vjerojatno bi preporučio edukaciju u Edunovi?</label>
+                </div>
+                <div class="rightTab">
+                    <ul style="list-style: none;">
+                        <li class="radio"><label>Definitivno<input name="radio-buttons" value="1" type="radio" class="userRatings"></label></li>
+                        <li class="radio"><label>Možda<input name="radio-buttons" value="2" type="radio" class="userRatings"></label></li>
+                        <li class="radio"><label>Nisam siguran<input name="radio-buttons" value="3" type="radio" class="userRatings"></label></li>
+                        <li class="radio"><label>Nikako<input name="radio-buttons" value="4" type="radio" class="userRatings"></label></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="most-like">Što ti se najviše sviđa kod predavanja: </label>
+                </div>
+                <div class="rightTab">
+                    <select id="most-like" name="mostLike" class="dropdown">
+                <option disabled="" selected="" value="">Select an option</option>
+                <option value="challenges">Izazovi</option>
+                <option value="homeWork">Domaće zadaće</option>
+                <option value="community">Kolege</option>
+                <option value="pavle">Pavle</option>
+                </select>
+                </div>
+            </div>
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="preferences">Stvari koje bi trebao (htio) unaprijediti u budućnosti: </label>
+                </div>
+                <div class="rightTab">
+                    <ul id="preferences" style="list-style: none;">
+                        <li class="checkbox"><label><input name="prefer" value="1" type="checkbox" class="userRatings">Front-end Projekti</label></li>
+                        <li class="checkbox"><label><input name="prefer" value="2" type="checkbox" class="userRatings">Back-end Projekti</label></li>
+                        <li class="checkbox"><label><input name="prefer" value="3" type="checkbox" class="userRatings">Photoshop</label></li>
+                        <li class="checkbox"><label><input name="prefer" value="4" type="checkbox" class="userRatings">Izazovi</label></li>
+                        <li class="checkbox"><label><input name="prefer" value="5" type="checkbox" class="userRatings">GIT</label></li>
+                        <li class="checkbox"><label><input name="prefer" value="6" type="checkbox" class="userRatings">Responsive Web Designs</label></li>
+                        <li class="checkbox"><label><input name="prefer" value="7" type="checkbox" class="userRatings">Framewors</label></li>
+                        <li class="checkbox"><label><input name="prefer" value="8" type="checkbox" class="userRatings">JavaScrypt</label></li>
+                        <li class="checkbox"><label><input name="prefer" value="9" type="checkbox" class="userRatings">Wiki</label></li>
+                        <li class="checkbox"><label><input name="prefer" value="10" type="checkbox" class="userRatings">Forum</label></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="comments">Nekakv komentar ili sugestija?</label>
+                </div>
+                <div class="rightTab">
+                    <textarea id="comments" class="input-field" style="height:50px;resize:vertical;" name="comment" placeholder="Unesi komentar ovdje..."></textarea>
+                </div>
+            </div>
+            <button id="submit" type="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
+
+
