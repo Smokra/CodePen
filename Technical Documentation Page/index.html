@@ -1,0 +1,256 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/style.css"
+        rel="stylesheet"
+        type="text/css">
+    <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+    <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+    <title>CSS: Technical Documentation Page</title>
+    <script>
+        window.console = window.console || function(t) {};
+    </script>
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+        window.parent.postMessage("resize", "*");
+        }
+    </script>
+<body translate="no">
+    <nav id="navbar">
+        <header>CSS</header>
+            <ul>
+                <li><a class="nav-link" href="#Uvod">Uvod</a></li>
+                <li><a class="nav-link" href="#Uređivanje_teksta">Uređivanje teksta</a></li>
+                <li><a class="nav-link" href="#Uređivanje_elemenata">Uređivanje elemenata</a></li>
+                <li><a class="nav-link" href="#Pozicioniranje">Pozicioniranje</a></li>
+                <li><a class="nav-link" href="#Elementi">Elementi</a></li>
+            </ul>
+    </nav>
+    <main id="main-doc">
+        <section class="main-section" id="Uvod">
+            <header>Uvod</header>
+            <article>
+                <p>CSS je jednostavan mehanizam za dodavanje stilova: fontova, boja razmaka između paragrafa, uređivanje tablica. Svojim dolaskom CSS je izazvao pravu revoluciju na internetu i to zahvaljujući nizu prednosti koje ima pred tabličnim layoutom (korištenje tablica za formiranje stranice). Korištenjem CSS-a postalo je moguće odvojiti prezentaciju podataka i dizajn od same strukture podataka. HTML kôd postaje pregledniji i manji što znači da ga je puno lakše kontrolirati, a također je moguće jednostavnom primjenom parametara promijeniti izgled stranice.</p>
+                <h3>Sintaksa</h3>
+                <p>Stilski obrasci sačinjeni su od stilskih pravila. Svako pravilo ima dva dijela:</p>
+                <ol>
+                    <li>Selektor: Određuje element na koji se stilsko pravilo odnosi</li>
+                    <li> Deklaracija: Određuje kako izgleda sadržaj opisan CSS-om</li>
+                </ol>
+                <p>Koristimo se sa setom interpunkcijskih i posebnih znakova kako bi definirali stilsko pravilo.</p>
+                <p>Sintaksa za stilska pravila uvijek slijedi sljedeći uzorak:</p>
+                <code>selektor {deklaracija;}</code>
+                <p>Deklaracija se dijeli na dvije stavke:</p>
+                <ol>
+                    <li><strong>Properties</strong> (aspekti kako da računalo prikaže tekst i grafiku).</li>
+                    <li><strong>Values</strong> (podaci koji određuju kao želimo da tekst i slike izgledaju na našoj stranici).</li>
+                </ol>
+                <p>Properties se od vrijednosti (value) u deklaraciji odvaja dvotočkom, a svaka deklaracija završava s točkom-zarez:</p>
+                <code>selector {property: value;}</code>
+                <h3>Selektori</h3>
+                <p>CSS za selektiranje elemenata najčešće koristi sam naziv elementa npr.</p>
+                <code>h1{color: blue;font-size: 16px;}</code>
+                <p>Osim toga omogućuje definiranje vlastitih selektora. Dok se ID selektor koristi za definiranje stila samo jednog HTML elementa na web stranici, class selektor (klasa) se najčešće odnosi na više elemenata.</p>
+                <p>ID selektor se unutar CSS datoteke definira oznakom ljestve #, a sintaksa pisanja CSS deklaracija ostaje ista.</p>
+                <code>#naslov{color: blue;font-size: 16px;}</code>
+                <p>Class selektor se definira točkom i u CSS datoteci ga deklariramo ovako:</p>
+                <code>.naslov{color: blue;font-size: 16px;}</code>
+                <h3>Način korištenja</h3>
+                <p>Za jedan selektor možemo napraviti nekoliko stilskih pravila, svaki s jednom deklaracijom:</p>
+                <code>h1{color: blue;}<br>h1{font-family:Arial;}<br>h1{font-size:36px;}</code>
+                <p>No, tako velika kolekcija stilsih pravila postaje teška za upotrebu. CSS vam dozvoljava da kombinirate nekoliko deklaracija u jedno stillsko pravilo koje utječe na karakteristike prikaza pojedinog selektora:</p>
+                <code>h1{<br>&nbsp;&nbsp;&nbsp;&nbsp;color: blue;<br>&nbsp;&nbsp;&nbsp;&nbsp;font-family:Arial;<br>&nbsp;&nbsp;&nbsp;&nbsp;font-size:36px;<br>}</code>
+                <p>Sve deklaracije za h1 selektor su unutar istih vitičastih zagrada ({}) i odvojene su točkazarezom (;). Možemo staviti neograničen broj deklaracija u stilsko pravilo, samo trebamo svaku deklaraciju završiti s točka-zarezom.</p>
+                <p>Možemo napraviti da se isti set deklaracija odnosi na cijelu skupinu selektora. Selektore je potrebno odvojiti zarezima. Sljedeće stilsko pravilo ostavlja deklaracije za boju teksta, font i veličinu fonta:</p>
+                <code>h1,h2,h3{<br>&nbsp;&nbsp;&nbsp;&nbsp;color: blue;<br>&nbsp;&nbsp;&nbsp;&nbsp;font-family:Arial;<br>&nbsp;&nbsp;&nbsp;&nbsp;font-size:36px;<br>}</code>
+                <h3>Povezivanje</h3>
+                <p>CSS stilove je moguće povezati sa HTML-om na tri načina:</p>
+                <h4>Linijski način</h4>
+                <p>Linijski stil se koristi ukoliko se za jedan element želi primjeniti posebno svojstvo koje neće utjecati na druge elemente. </p>
+                <p>Koristi se putem atributa style koji može sadržavati bilo koje CSS svojstvo.</p>
+                <code>&ltp&gt style="color:green;font-size:20px;">Ovo je paragraf&lt/p&gt</code>
+                <h4>Unutarnji način</h4>
+                <p>Koristi se ukoliko jedan cijeli dokument ima drugačiji stil od drugih dokumenata u istom direktoriju. Definira se unutar zaglavlja &lthead&gt , koristeći &ltstyle&gt oznaku.</p>
+                <code>&lthead&gt<br>&nbsp;&nbsp;&nbsp;&nbsp;&ltstyle type="text/css"&gt<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body {background-color:red;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p {color:blue;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt/style&gt<br>&lt/head></code>
+                <h4>Vanjski način</h4>
+                <p>Najčešći način korištenja CSS-a, budući da se an taj način uštedi najviše vremena. Sav stil se odredi unutar vanjske CSS datoteke, te se ta ista poziva unutar zaglavlja putem &ltlink&gt oznake.</p>
+                <code>&lthead&gt<br>&nbsp;&nbsp;&nbsp;&nbsp;&ltlink rel="stylesheet" type="text/css" href="stil.css"&gt<br>&lt/head&gt</code>
+                <h3>Nasljeđivanje</h3>
+                <p>Neka svojstva u CSS-u element može naslijedit od drugog elementa ukoliko se nalazi unutar njega. Često su to svojstva vezana za oblikovanje teksta npr. font family, text-alignment i slično ali i mnogi drugi.</p>
+                <h4>Primjer</h4>
+                <code>&ltdiv style=”font-family:sans-serif; border:1px solid red; padding:10px;”&gt<br>&nbsp;&nbsp;&nbsp;&nbsp;Ovaj tekst će imati sans-serif font.<br>&nbsp;&nbsp;&nbsp;&nbsp;&ltp&gtOvaj tekst će također imati sans-serif font, jer se font naslijeđuje automatski,ali obrub se neće naslijediti.<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt/p&gt<br>&lt/div&gt</code>
+                <p>Ali na sljedećem primjeru ćete primjetiti da možete „natjerati“ element da naslijedi stil od drugog elementa</p>
+                <h4>Primjer</h4>
+                <code>&ltdiv style=”font-family:serif; border:1px solid red; padding:10px;”&gt<br>&nbsp;&nbsp;&nbsp;&nbsp;Ovaj tekst će imati serif font.<br>&nbsp;&nbsp;&nbsp;&nbsp;&ltp style=”border:inherit;”&gt<br>Sada će paragraf također imati crveni obrub. Za to je zaslužna<br> vrijednost „inherit“, što znači naslijedi.&lt/p&gt<br>&lt/div&gt</code>
+            </article>
+        </section>
+        <section class="main-section" id="Uređivanje_teksta">
+            <header>Uređivanje teksta</header>
+            <article>
+                <h3>Boja teksta</h3>
+                <p>Boja fonta i boja linkova se određuje svojstvom „color“. A kao unos boje se koriste 3 načina:</p>
+                <ul>
+                    <li>Heksadecimalni zapis - poput "#ff0000"</li>
+                    <li>RGB vrijednost - poput "rgb(255,0,0)"</li>
+                    <li>Naziv boje - poput "red"</li>
+                </ul>
+                <p>Predefinirana vrijednost je crna, a unutar body selektora se određuje predefinirana vrijednost za taj dokument.</p>
+                <h3>Veličina teksta</h3>
+                <p>Za promjenu veličine teksta koristi se svojstvo font-size. Svojstvo se može postaviti na nekoliko načina od kojih je najpopularniji unošenje apsolutne vrijednosti u pikselima (px).</p>
+                <p>Osim toga , postoje još i "em" , postotci te izrazi poput small, large, medium itd.</p>
+                <code>p{font-size: 12px;}<br>p{font-size: x-small;}<br>p{font-size: 200%;}<br>p{font-size: 2em;}</code>
+                <h3>Debljina slova</h3>
+                <p>Stilska deklaracija koja koristi font-weight svojstvo, a čija vrijednost može biti jedna od sljedećih:</p>
+                <ul>
+                    <li><strong>bold:</strong>enderira tekst u srednjoj bold debljini</li>
+                    <li><strong>bolder:</strong>renderira tekst deblji od normalnog bolda</li>
+                    <li><strong>lighter:</strong>renderira tekst tanji od normalnog bolda</li>
+                    <li><strong>normal:</strong>miče bilo kakvo bold formatiranje</li>
+                    <li>cjelobrojna vrijednosti od 100 - 900 (100 je najtanji a 900 najdeblji)</li>
+                </ul>
+                <h3>Tip fonta</h3>
+                <p>Tip fonta je također dio koji se može uređivati unutar svojstava fonta. U te tipove spadaju razne grupe fontova ili font-family. Postoje dvije osnovne verzije a to su serif i sans-serif. Slova sa serifima koriste ukrase na rubovima slova te nisu toliko čitljiva kao što su slova bez serifa.</p>
+            </article>
+        </section>
+            <section class="main-section" id="Uređivanje_elemenata">
+                <header>Uređivanje elemenata</header>
+                <article>
+                    <h3>Pozadinska boja elemenata</h3>
+                    <p>Pozadinske boje elemenata se postavljanu na vrlo sličan način kao što se postavlja boja slova. Boja se može postaviti koristeći nekoliko načina:</p>
+                    <ul>
+                        <li>Heksadecimalni zapis - poput "#ff0000"</li>
+                        <li>RGB vrijednost - poput "rgb(255,0,0)"</li>
+                        <li>Naziv boje - poput "red"</li>
+                    </ul>
+                    <h3>Širina i visina</h3>
+                    <p>Širinu i visinu elementa određujemo preko svojstva <strong>width</strong> i <strong>height</strong>. Elementi mogu poprimiti vrijednost u pixelima ili postocima.</p>
+                    <code>div{width: 400px;}<br>div{width: 40%;}<br><br>div{height: 200px;}<br>div{height: 20%;}</code>
+                    <h3>Obrub</h3>
+                    <p>Svakom HTML elementu se može postaviti obrub svojstvom border. Vrijednost svojstva sastoji se od nekoliko dijelova:</p>
+                    <ul>
+                        <li>debljine obruba (najčešće u pikselima)</li>
+                        <li>vrsta obruba (puna linija, točkasta linija, itd.)</li>
+                        <li>boja obruba</li>
+                    </ul>
+                    <code>div{border: 3px solid black;}</code>
+                    <p>Postoji i drugi način deklaracije obruba a to je da se svaki od tih elemenata pojjedinačno označe.</p>
+                    <p>Dakle, <strong>border-width</strong> se unosi u postotcima ili pikselima.</p>
+                    <p><strong>Border-style </strong>može biti jedan od sljedećih:</p>
+                    <ul>
+                        <li>Dotted (istočkan obrub)</li>
+                        <li>Dashed(isprekidan obrub)</li>
+                        <li>Solid (puni obrub)</li>
+                        <li>Double (dvostruki obrub)</li>
+                    </ul>
+                    <p>Boja linije određuje se sa svojstvom <strong>border-color</strong>.</p>
+                    <p>Osim obruba koji utječe na element sa svih strana postoje i pojedinačni obrubi:</p>
+                    <ul>
+                        <li>border-top (gornji obrub)</li>
+                        <li>border-right (desni obrub)</li>
+                        <li>border-bottom (donji obrub)</li>
+                        <li>border-left(lijevi obrub)</li>
+                    </ul>
+                    <h3>Margina</h3>
+                    <p>Razmak između dva HTML elementa naziva se margina (margin). Kao i kod obruba margine se mogu postaviti na svakoj stranici posebno. Također moguće je staviti marginu za sve stranice samo sa jednom vrijednosti.</p>
+                    <code>div{margin: 3px;}</code>
+                    <p>Postoji i pojedinačni način unosa margina a to je :</p>
+                    <ul>
+                        <li>margin-top (gornja margina)</li>
+                        <li>margin-right (desna margina)</li>
+                        <li>margin-bottom (donja margina)</li>
+                        <li>margin-left (lijeva margina)</li>
+                    </ul>
+                    <p>Također je moguće unijeti sve margine unutar jedne linije:</p>
+                    <code>div{margin: 15px 10px 10px 15px;}</code>
+                    <p>Prvi broj se odnosi na gornju marginu, drugi na desnu, treći na donju te zadnji na lijevu marginu. Dakle vrijednosti se dodjeljuju u smjeru kretanja kazaljki na satu.</p>
+                    <h3>Padding</h3>
+                    <p>Padding je svojstvo koje određuje udaljenost sadržaja HTML elemenata od obruba. Način na koji se deklarira je isti kao i kod margina tj. može se reći da je jedina razlika između padding-a i margine ta što se margina odnosi na udaljenost od obruba do drugog elementa a padding utječe na unutarnju udaljenost , točnije udaljenost od obruba do elementa na koji se primjenjuje.</p>
+                </article>
+            </section>
+            <section class="main-section" id="Pozicioniranje">
+                <header>Pozicioniranje</header>
+                <article>
+                    <p>Koristeći svojstvo position moguće je pozicionirati pojedini element na stranicu ovisno o njegovoj vrijednosti. Uz ovo svojstvo također se koriste svojstva left, right, top i bottom pomoću kojih se pože odrediti pozicija nekog elementa u odnosu na navedene strane. Svojstvo position može imati sljedeće vrijednosti:</p>
+                    <ul>
+                        <li>static</li>
+                        <li>absolute</li>
+                        <li>relative</li>
+                        <li>fixed</li>
+                    </ul>
+                    <h3>Statično</h3>
+                    <p>Vrijednost static je predefinirana vrijednost svojstva position, na taj način se elementi dodaju jedan za drugim na stranicu. Svojstva left, right, top i bottom nemaju utjecaja prilikom korištenja ove vrijednosti.</p>
+                    <h3>Absolutno</h3>
+                    <p>Korištenjem vrijednosti absolute elementi se pozicioniraju apsolutno u odnosu na druge elemente tj. na prvi element koji ima poziciju različito od static ukoliko takav element ne postoji onda se element pozicionira u odnosu na &lthtml&gt oznaku.</p>
+                    <h3>Relativno</h3>
+                    <p>Korištenjem svojstva relative elementi se pozicioniraju relativno na normalnu poziciju.</p>
+                    <h3>Fiksno</h3>
+                    <p>Kod korištenja svojstva fixed potrebno je znati se element postavlja na fiksnu poziciju te će taj element uvijek biti na točno toj poziciji. Prilikom pomicanja kliznih traka (scrollanja) element uvijek ostaje na istoj poziciji.</p>
+                    <h3>Float i Clear</h3>
+                    <p>Svojstvo float omogućuje kako bi se ciljani element postavio ili uz lijevi ili uz desni rub ekrana. Ukoliko na više elemenata postavimo svojstvo float to neće imati utjecaja na konačni izgled. Ako se na lijevi stupac postavi svojstvo float na vrijednost left rezultat će biti kao na slici.</p>
+                    <p>Kako bi se postavio sadržaj s desne strane potrebno je postaviti i širinu elementa unutar kojeg se nalazi sadržaj. Širina elementa se može izračunati koristeći sljedeću formulu: 964-200-4-20 =740 od čega je 200 piksela širina lijevog stupca 4 je obrub po 2 piksela sa svake strane i 25 je padding, 15 piksela lijeve i 10 piksela sa desne strane.</p>
+                    <p>Korištenjem fiksnih širina oba stupca postiže se postavljanje obaju stupaca kako je planirano no zadnji dio odnosno footer se nalazi ispod sadržajnog stupca što se želi izbjeći. Kako bi se to izbjeglo potrebno je koristiti svojstvo clear koje ima tri vrijednosti left, right i both. Postavljanjem svojstva clear i vrijednosti both na footer postiže se konačni izgled stranice.</p>
+                    <h3>Z-indeks</h3>
+                    <p>Uobičajeno HTML stranice su dvodimenzionalne, no ponekad je potrebno elemente složiti i u tri dimenzije, svojstvo z-index to omogućava. Z-index se može primjenjivati samo kada se primjenjuje svojstvo position sa vrijednostima absolute, relative i fixed. Vrijednosti z-indexa prikazuju koliko je element „blizu“ korisniku tj. koliko je udaljen.</p>
+                    <p>Naime vrijednosti mogu biti ili negativne što znači da je element u pozadini drugih elemenata ili mogu biti pozitivne vrijednosti što znači da je element iznad svih. Predefinirana vrijednost je auto; Ukoliko se koristi nekoliko elemenata koji imaju vrijednost auto elementi će se slagati jedan na drugi.</p>
+                    <h3>Display</h3>
+                    <p>Svojstvo display određuje na koji će se način HTML element prikazivati. Najčešće vrijednosti ovog svojstva su:</p>
+                    <ul>
+                        <li>none</li>
+                        <li>block</li>
+                        <li>inline</li>
+                    </ul>
+                    <h4>None</h4>
+                    <p>Koristeći none vrijednost element se ne prikazuje na stranici.</p>
+                    <h4>Block</h4>
+                    <p>Koristeći block vrijednost element se prikazuje kako je inače i predviđeno tj. širina se postavlja na širinu elementa koji je iznad njega. Elementi div, p, ul, ol, li i od h1 do h6 imaju predefinirane vrijednosti block. Ponašaju je kao da je postavljen prijelom retka prije i poslije elementa.</p>
+                    <h4>Inline</h4>
+                    <p>Koristeći inline vrijednost element zauzima mjesta samo onoliko koliko mu je potrebno tj. koliko je velik sadržaj elementa. Obično se nalaze unutar nekog „block“ elementa. Elementi span, a, img, em, strong imaju predefinirane vrijednosti inline. Ne rade prijelom retka prije i poslije elementa.</p>
+                </article>
+            </section>
+            <section class="main-section" id="Elementi">
+                <header>Elementi</header>
+                <h3>Linkovi</h3>
+                <p>Neke od pseudoklasa koje se mogu koristiti u vezama su:</p>
+                <ul>
+                    <li>a:link {color:#FF0000;}</li>
+                    <li>a:visited {color:#00FF00;}</li>
+                    <li>a:hover {color:#FF00FF;}</li>
+                    <li>a:active {color:#0000FF;}</li>
+                </ul>
+                <p>Koristeći pseudoklase moguće je u potpunosti promijeniti izgled veza ovisno o njihovim stanjima.</p>
+                <ul>
+                    <li>:link – se koristi za prikazivanje veza koje još nisu posjećene tj. korisnik nije nikad koristio tu vezu.</li>
+                    <li>:visited – se koristi za prikazivanje veza koje je korisnik posjetio.</li>
+                    <li>:hover – se koristi za prikazivanje veza u trenutku kada se pokazivačem miša prolazi preko veze.</li>
+                    <li>:active – se koristi za prikazivanje veza koje su aktivne veze.</li>
+                </ul>
+                <h3>Liste</h3>
+                <p>Svim listama je moguće dodati 4 svojstva:</p>
+                <ul>
+                    <li><strong>list-style</strong> postavlja sva svojstva liste u jedan izraz</li>
+                    <li><strong>list-style-image</strong> određuje sliku kao oznaku elementa liste</li>
+                    <li><strong>list-style-position</strong> određuje da li se elementi u listi nalaze iznutra ili izvana toka sadržaja</li>
+                    <li><strong>list-style-type</strong> određuje tip oznaka elementa u listi</li>
+                </ul>
+                <p>Budući da postoje uređene i neuređene liste moguće im je dodavati različite vrijendosti.</p>
+                <h3>Span i Div</h3>
+                <p>Prilikom uređivanja izgleda HTML dokumenata potrebno je grupirati više elemenata u logičke cjeline kao što su na primjer zaglavlje gdje se nalazi logo i navigacija. Takvo grupiranje moguće je napraviti koristeći &ltdiv&gt element. Koristeći taj element moguće je postaviti ista svojstva za niz elemenata koji se nalaze unutar pojedine cjeline</p>
+                <p>Element &ltspan&gt se također može koristiti za odvajanje logičkih cjelina ali za razliku od div elementa koji stvara blokove, span je linijski element.</p>   
+            </article>
+        </section>
+Kompletna dokumentacija sa ove stranice uzeta je sa <a href="http://www.webtech.com.hr/index.php" target="_blank">Web Tech</a>
+</main>
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script><div id="fcc_test_suite_wrapper" style="position: relative !important; z-index: 99999 !important;"></div>
+<script id="rendered-js">
+                      // coded by @ChaituVR 
+                
+    const projectName = 'technical-docs-page';
+    localStorage.setItem('example_project', 'Technical Docs Page');
+                      //# sourceURL=pen.js
+</script>
+                
+                
+</body>
+</html>
